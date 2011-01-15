@@ -247,6 +247,18 @@ AS_HELP_STRING([--with-storages], [Build with specified mail storage formats (ma
 	mail_storages="shared maildir mbox sdbox mdbox cydir")
 AC_SUBST(mail_storages)
 
+AC_ARG_WITH(swift,
+AS_HELP_STRING([--with-swiftfs], [Build with swiftfs lib-fs layer]), [
+  swiftfs=$withval],
+  swiftfs="no")
+
+AS_IF([test "x$swiftfs"="xyes"], [
+  PKG_CHECK_MODULES(curl, libcurl)
+  PKG_CHECK_MODULES(swift, swift)
+  AM_CONDITIONAL(SWIFTFS, [test "x$swiftfs"="xyes"])
+])
+
+
 DC_DOVECOT_MODULEDIR
 
 AC_ARG_WITH(docs,

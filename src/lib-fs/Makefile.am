@@ -17,5 +17,11 @@ headers = \
 	fs-sis-common.h \
 	ostream-cmp.h
 
+if SWIFTFS
+	libfs_la_SOURCES += fs-swift.c
+	libfs_la_CFLAGS = $(swift_CFLAGS)
+	libfs_la_LDADD = $(swift_LIBS)
+endif
+
 pkginc_libdir=$(pkgincludedir)
 pkginc_lib_HEADERS = $(headers)

@@ -55,6 +55,7 @@ struct fs_lock {
 extern struct fs fs_class_posix;
 extern struct fs fs_class_sis;
 extern struct fs fs_class_sis_queue;
+extern struct fs fs_class_swift;
 
 void fs_set_error(struct fs *fs, const char *fmt, ...) ATTR_FORMAT(2, 3);
 void fs_set_critical(struct fs *fs, const char *fmt, ...) ATTR_FORMAT(2, 3);
